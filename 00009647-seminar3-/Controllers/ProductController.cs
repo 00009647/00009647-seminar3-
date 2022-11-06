@@ -26,6 +26,7 @@ namespace _00009647_seminar3_.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            //we are getting all products from productrepository and assigning it to products variable
             var products = _productRepository.GetProducts();
             return new OkObjectResult(products);
             //return new string[] { "value1", "value2" };
@@ -36,8 +37,11 @@ namespace _00009647_seminar3_.Controllers
         [HttpGet("{id}", Name = "Get")]
         public IActionResult Get(int id)
         {
+            //read
+            //we are accessing products by their ids
             var product = _productRepository.GetProductById(id);
             return new OkObjectResult(product);
+            //and returning them to display
             //return "value";
         }
 
@@ -45,6 +49,7 @@ namespace _00009647_seminar3_.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Product product)
         {
+            //create method with InsertProduct
             using (var scope = new TransactionScope())
             {
                 _productRepository.InsertProduct(product);
@@ -56,6 +61,8 @@ namespace _00009647_seminar3_.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Product product)
         {
+            //edit method with UpdateProduct from IProductRepository
+            //if product not empty (null)
             if (product != null)
             {
                 using (var scope = new TransactionScope())
@@ -71,6 +78,7 @@ namespace _00009647_seminar3_.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            //delete method with DeleteProduct-getting specific id
             _productRepository.DeleteProduct(id);
             return new OkResult();
         }

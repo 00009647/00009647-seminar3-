@@ -24,12 +24,11 @@ namespace _00009647_seminar3_.Repository
         public Product GetProductById(int productId)
         {
             var prod = _dbContext.Products.Find(productId);
-            // _dbContext.Entry(prod).Reference(s => s.ProductCategory).Load();
             return prod;
         }
         public IEnumerable<Product> GetProducts()
         {
-
+            //display list of all available products
             return _dbContext.Products.ToList();
         }
         public void InsertProduct(Product product)
@@ -43,9 +42,9 @@ namespace _00009647_seminar3_.Repository
         }
         public void UpdateProduct(Product product)
         {
-            _dbContext.Entry(product).State =
+           _dbContext.Entry(product).State =
            Microsoft.EntityFrameworkCore.EntityState.Modified;
-            Save();
+           Save();
         }
     }
 }
