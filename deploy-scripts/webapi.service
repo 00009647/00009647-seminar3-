@@ -3,7 +3,7 @@
 
  [Service]
  WorkingDirectory=/var/www/
- ExecStart=/usr/bin/dotnet /var/www/OlchaAPI.dll
+ ExecStart=/usr/bin/dotnet /var/www/00009647-seminar3-.dll
  Restart=always
 
  RestartSec=10
