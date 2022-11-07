@@ -1,1 +1,1 @@
-systemct1 stop webapi.service 
+﻿systemctl stop webapi.service
